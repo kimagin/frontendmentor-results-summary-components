@@ -75,6 +75,19 @@ function Data() {
         icon: './images/icon-visual.svg',
       },
     ],
+    progressBar(element, parent) {
+      element.classList.add(parent.classList[1])
+      const score = element.dataset.score
+      let number = 0
+      const progressInterval = setInterval(async () => {
+        if (number < score) {
+          element.style.width = number + '%'
+          number++
+        } else {
+          clearInterval(progressInterval)
+        }
+      }, 10)
+    },
   }
 }
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      size="32x32"
+      href="./images/favicon-32x32.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Results summary component</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="style/style.css" />
+  </head>
+  <body x-data="data">
+    <!-- Main Container -->
+    <main>
+      <!-- Top Container -->
+      <section class="top-container">
+        <div class="top-container-body">
+          <h3 class="your-result">Your Result</h3>
+          <!-- Circle Display -->
+          <div class="circle">
+            <h1
+              class="current-score"
+              x-text="score">
+              76
+            </h1>
+            <h4 class="max-score">of 100</h4>
+          </div>
+          <div class="display-bottom">
+            <h2 class="feedback">Great</h2>
+            <p class="comparision">
+              You scored higher than 65% of the people who have taken these
+              tests.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Bottom Container -->
+      <section class="bottom-container">
+        <!-- Title -->
+        <h3 class="container-title">Summary</h3>
+        <!-- Cards -->
+        <div class="card-container">
+          <template x-for="card in cards">
+            <div
+              class="card"
+              x-bind:class="card.type">
+              <div class="card-left">
+                <div class="card-icon">
+                  <img
+                    :src="card.icon"
+                    alt="reaction" />
+                </div>
+                <h3
+                  class="card-title"
+                  x-text="card.title">
+                  Reaction
+                </h3>
+              </div>
+              <div class="card-right">
+                <h3
+                  class="card-score"
+                  x-text="card.score">
+                  80
+                </h3>
+                <h3 class="seperator">/</h3>
+                <h3 class="card-max-score">100</h3>
+              </div>
+            </div>
+          </template>
+        </div>
+        <!-- Action Button -->
+        <button class="action-button">Continue</button>
+      </section>
+    </main>
+    <script
+      type="module"
+      src="js/main.js"></script>
+  </body>
+</html>
